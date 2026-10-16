@@ -3,14 +3,13 @@ const {JSDOM}=require("jsdom");
 const html=fs.readFileSync(path.join(__dirname,"index.html"),"utf8");
 const dom=new JSDOM(html,{runScripts:"dangerously",url:"http://localhost/",pretendToBeVisual:true});
 const {window}=dom;window.scrollTo=()=>{};
-const scripts=["layouts.js","content.js","app.js"].map(f=>fs.readFileSync(path.join(__dirname,f),"utf8"));
 let failures=0;
 function check(name,fn){try{const ok=fn();console.log((ok?"PASS":"FAIL")+" "+name);if(!ok)failures++;}catch(e){failures++;console.log("FAIL "+name+": "+e.message);}}
-/* Execute each classic script as its own script tag context, matching index.html. */
-const {JSDOM:Unused}=require("jsdom");
+/* Inline the app files as classic scripts (they share the same global scope). */
 for(const file of ["layouts.js","content.js","app.js"]){
- const code=fs.readFileSync(path.join(__dirname,file),"utf8");
- const script=window.document.createElement("script");script.textContent=code;window.document.body.appendChild(script);
+ const script=window.document.createElement("script");
+ script.textContent=fs.readFileSync(path.join(__dirname,file),"utf8");
+ window.document.head.appendChild(script);
 }
 const doc=window.document;
 window.document.dispatchEvent(new window.Event("DOMContentLoaded",{bubbles:true,cancelable:true}));
