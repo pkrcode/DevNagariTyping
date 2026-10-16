@@ -1,68 +1,62 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="theme-color" content="#172554" />
-<meta name="description" content="Practice Hindi typing with structured lessons, timed tests, games, and progress tracking." />
-<title>DevNagariTyping — हिंदी टाइपिंग ट्यूटर</title>
-<link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Prepare for Hindi and English typing exams with lessons, mock tests, practice games and progress tracking.">
+<title>DevNagariTyping — Hindi & English Typing Tutor</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-<header id="app-header" class="app-header">
-  <div class="header-brand">
-    <span class="brand-mark">अ</span>
-    <span class="brand-name">हिंदी टाइपिंग ट्यूटर</span>
-  </div>
-  <nav class="app-nav">
-    <button id="nav-home">होम</button>
-    <button id="nav-learn">सीखें</button>
-    <button id="nav-test">टेस्ट</button>
-    <button id="nav-game">खेल</button>
-    <button id="nav-progress">प्रगति</button>
-    <button id="nav-switch-layout" class="nav-muted">लेआउट बदलें</button>
+<header id="app-header" class="topbar">
+  <a class="brand" href="#" id="brand-home" aria-label="DevNagariTyping home"><span class="brand-icon">⌨</span><span><strong>DevNagari<span>Typing</span></strong><small>Hindi &amp; English Typing Tutor</small></span></a>
+  <nav class="app-nav" aria-label="Main navigation">
+    <button id="nav-home" class="active">⌂ <span>Home</span></button><button id="nav-learn">▣ <span>Learn</span></button><button id="nav-practice" data-screen="nav-learn">♧ <span>Practice</span></button><button id="nav-test">▤ <span>Test</span></button><button id="nav-game">♧ <span>Games</span></button><button id="nav-exam" data-screen="nav-home">♙ <span>Exam Prep</span></button><button id="nav-progress">▥ <span>Progress</span></button><button id="nav-leaderboard" data-screen="nav-progress">♟ <span>Leaderboard</span></button>
+    <button class="nav-more" id="nav-more" type="button">More⌄</button><button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">☼</button><button class="signin-btn" id="signin-btn" type="button">🌐 Sign in with Google</button>
   </nav>
 </header>
-
 <main id="app-main">
-  <section id="screen-onboarding" class="screen active">
-    <div class="hero">
-      <h1>अपनी कीबोर्ड भाषा चुनें</h1>
-      <p class="hero-sub">Choose which Hindi keyboard layout you want to learn. This choice matters — it decides which keys you'll be drilled on, so pick the one your actual exam requires.</p>
+<section id="screen-onboarding" class="screen active">
+  <div class="intro"><span class="eyebrow">⌁ Your typing journey starts here</span><h1>Choose Your Typing Layout</h1><p>Pick the keyboard layout specified for your exam. You can change it later.</p></div><div id="layout-cards" class="layout-cards"></div>
+</section>
+<section id="screen-home" class="screen">
+  <section class="hero-dashboard">
+    <div class="hero-copy">
+      <span class="eyebrow"><span>🎓</span> For Government Exam Aspirants</span>
+      <h1>Type Faster. <em>Clear Exams.</em><br>Build Your Career.</h1>
+      <p class="hero-lede">Master Hindi typing (Kruti Dev, Mangal, Inscript) and English typing with step-by-step lessons, practice tests, real exam paragraphs and fun games.</p>
+      <ul class="ticks"><li><i class="tick pink">✣</i>Exam-focused practice for SSC, High Court, CPCT and State Exams</li><li><i class="tick orange">♧</i>Step-by-step keyboard lessons with finger guidance</li><li><i class="tick yellow">▣</i>Typing tests with speed, accuracy and error analysis</li><li><i class="tick green">✓</i>Track progress and improve every day</li></ul>
+      <div class="hero-actions"><button class="btn btn-primary" id="hero-start">Start Learning Free <span>→</span></button><button class="btn btn-outline" id="hero-demo">▶ <span>Watch Demo</span></button></div>
     </div>
-    <div id="layout-cards" class="layout-cards"></div>
+    <div class="hero-visual"><img src="assets/isha-hero.jpg" alt="DevNagariTyping study character preparing for typing exams" class="hero-photo" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div class="hero-fallback"><div class="fallback-note">Better Speed　✓<br>High Accuracy　✓<br>Clear Typing Test　✓<br>Government Job　✓</div><div class="fallback-person">👩🏻‍💻</div><div class="fallback-sticky">Practice Today<br>for a Brighter<br>Tomorrow ♡</div></div></div>
+    <aside class="exam-widget"><div class="widget-head"><h2>♜ Supported for Popular Exams</h2><button class="text-link" id="exam-view-all">View All →</button></div><div class="exam-list"><button class="exam-chip"><b>🏅</b> SSC (CGL, CHSL, MTS)</button><button class="exam-chip"><b>🏛️</b> CPCT</button><button class="exam-chip"><b>🏛</b> High Court (Clerk, Steno)</button><button class="exam-chip"><b>🏵️</b> State Govt. Exams</button><button class="exam-chip"><b>↗</b> IBPS / RRB</button><button class="exam-chip"><b>🔴</b> Railway (NTPC, Group D)</button></div><div class="mini-benefits"><div><strong>◴</strong><b>Improve</b><span>Typing Speed</span></div><div><strong>◎</strong><b>90%+</b><span>Accuracy Goal</span></div><div><strong>↗</strong><b>Real Exam</b><span>Practice</span></div></div><div class="community"><span class="trophy">🏆</span><div><b>Join aspiring typists</b><small>Preparing with DevNagariTyping</small></div><span class="avatars">👩🏻 👨🏽 👩🏾</span></div></aside>
   </section>
-
-  <section id="screen-home" class="screen">
-    <div class="panel">
-      <div class="panel-row-between"><h2>आपकी प्रगति</h2><span id="current-layout-name" class="layout-pill"></span></div>
-      <div class="progress-track"><div id="home-progress-bar" class="progress-fill"></div></div>
-      <p id="home-progress-text" class="muted"></p>
-    </div>
-    <div class="panel-grid">
-      <div class="panel action-card" onclick="document.getElementById('nav-learn').click()"><h3>सीखें</h3><p>अक्षर से शुरू करें — उंगली के अनुसार क्रमबद्ध पाठ, फिर शब्द, फिर अनुच्छेद।</p></div>
-      <div class="panel action-card" onclick="document.getElementById('nav-test').click()"><h3>टेस्ट</h3><p>असली परीक्षा जैसा अभ्यास — शब्द-लॉक बैकस्पेस, समय सीमा, WPM व शुद्धता।</p></div>
-      <div class="panel action-card" onclick="document.getElementById('nav-game').click()"><h3>खेल</h3><p>स्वर, व्यंजन, मात्रा, अंक — तेज़ गति से अभ्यास करें, स्कोर बनाएं।</p></div>
-    </div>
-    <div class="panel"><h3>कमजोर कुंजियां</h3><div id="home-weak-keys" class="key-chip-row"></div></div>
+  <section class="layout-strip"><div class="section-heading"><h2>Choose Your Typing Layout</h2><span id="current-layout-name" class="layout-pill">Select a layout</span></div><div class="layout-options">
+    <button class="layout-option selected" data-layout="kruti"><span class="layout-letter hindi">क</span><span><b>Kruti Dev 010</b><small>Most used in some exams</small></span><span class="layout-check">✓</span></button>
+    <button class="layout-option" data-layout="mangal"><span class="layout-letter hindi">क</span><span><b>Mangal (Unicode)</b><small>Unicode Hindi typing</small></span><span class="layout-arrow">›</span></button>
+    <button class="layout-option" data-layout="mangal"><span class="layout-letter hindi">क</span><span><b>Inscript (Unicode)</b><small>Indian keyboard layout</small></span><span class="layout-arrow">›</span></button>
+    <button class="layout-option" data-layout="mangal"><span class="layout-letter">A</span><span><b>English (QWERTY)</b><small>For English typing</small></span><span class="layout-arrow">›</span></button>
+    <button class="layout-help" id="nav-switch-layout"><b>Not sure which layout?</b><span>See Comparison →</span><span class="help-person">🙋🏻‍♂️</span></button>
+  </div></section>
+  <section class="dashboard-grid">
+    <article class="dash-card course-card"><div class="card-heading"><h2>▣ <span>Structured Course</span></h2><button class="text-link" id="course-view-all">View All →</button></div><div class="course-progress"><div class="progress-track"><div id="home-progress-bar" class="progress-fill" style="width:35%"></div></div><p id="home-progress-text">Build your skills one lesson at a time.</p></div><ol class="lesson-list"><li class="done"><span>1</span><label>Keyboard Basics &amp; Finger Placement</label><b>✓</b></li><li class="done"><span>2</span><label>Home Row Practice (Left Hand)</label><b>✓</b></li><li class="current"><span>3</span><label>Home Row Practice (Right Hand)</label><b>▶</b></li><li class="locked"><span>4</span><label>Top Row Keys</label><b>♙</b></li><li class="locked"><span>5</span><label>Bottom Row Keys</label><b>♙</b></li><li class="locked"><span>6</span><label>Matras and Common Combinations</label><b>♙</b></li><li class="locked"><span>7</span><label>Words Practice</label><b>♙</b></li><li class="locked"><span>8</span><label>Sentences Practice</label><b>♙</b></li></ol><button class="btn btn-primary wide" id="continue-lesson">Continue Lesson 3 →</button></article>
+    <article class="dash-card test-card"><div class="card-heading"><h2>🎯 <span>Typing Test</span></h2><button class="text-link" id="test-start-link">Start Test →</button></div><div class="test-modes"><button data-duration="60"><strong>⏱</strong><b>1 Minute</b><small>Quick Test</small></button><button data-duration="180"><strong>◷</strong><b>3 Minutes</b><small>Standard Test</small></button><button data-duration="300"><strong>🏆</strong><b>5 Minutes</b><small>Challenge</small></button></div><div class="card-heading subheading"><h3>Real Exam Paragraphs</h3><button class="text-link" id="paragraph-view-all">View All →</button></div><div class="paragraph-list"><button class="paragraph-item" data-duration="600"><span>▤</span><span><b>SSC Hindi Typing Test - 1</b><small>Time: 10 mins | Kruti Dev</small></span><i>›</i></button><button class="paragraph-item" data-duration="600"><span>▤</span><span><b>High Court Hindi Paragraph - 1</b><small>Time: 10 mins | Hindi practice</small></span><i>›</i></button><button class="paragraph-item" data-duration="600"><span>▤</span><span><b>CPCT Practice Test - 1</b><small>Time: 10 mins | Unicode</small></span><i>›</i></button><button class="paragraph-item" data-duration="600"><span>▤</span><span><b>State Exam Typing Test - 1</b><small>Time: 10 mins | Hindi practice</small></span><i>›</i></button></div></article>
+    <article class="dash-card games-card"><div class="card-heading"><h2>🎮 <span>Practice Games</span></h2><button class="text-link" id="games-view-all">View All →</button></div><div class="game-tiles"><button class="game-tile tile-purple" data-game="combined"><span>अ</span><b>Falling Letters</b><small>Type before it falls</small></button><button class="game-tile tile-teal" data-game="vyanjan"><span>क　म</span><b>Letter Hunt</b><small>Find and type letters</small></button><button class="game-tile tile-orange" data-game="swar"><span>🚀 शब्द</span><b>Word Builder</b><small>Type the correct words</small></button><button class="game-tile tile-blue" data-game="numeric"><span>◴</span><b>Speed Challenge</b><small>Beat your best score</small></button></div></article>
+    <article class="dash-card progress-card"><div class="card-heading"><h2>▥ <span>Your Progress</span></h2><button class="text-link" id="progress-view-all">View Details →</button></div><div class="progress-summary"><div class="progress-ring"><strong id="progress-percent">35%</strong><small>Course<br>Completed</small></div><div class="stat-list"><div><i>▤</i><span>Lessons</span><b id="progress-lessons">12 / 40</b></div><div><i>◷</i><span>Practice Time</span><b>3h 25m</b></div><div><i>⚡</i><span>Best Speed</span><b>32 WPM</b></div><div><i>◎</i><span>Accuracy</span><b>94%</b></div></div></div><div class="card-heading achievements-head"><h3>Recent Achievements</h3><button class="text-link" id="achievements-view-all">See All →</button></div><div class="achievement"><span>🏆</span><div><b>Completed Home Row (Hindi)</b><small>2 hours ago</small></div><strong>+50 XP</strong></div><div class="achievement"><span>⚡</span><div><b>Reached 30 WPM</b><small>1 day ago</small></div><strong>+100 XP</strong></div><div class="achievement"><span>🎯</span><div><b>Perfect Accuracy (100%)</b><small>2 days ago</small></div><strong>+75 XP</strong></div><div id="home-weak-keys" class="key-chip-row" hidden></div></article>
   </section>
-
-  <section id="screen-learn-list" class="screen"><div class="panel-row-between"><h2>पाठ सूची</h2><button id="practice-weak-keys-btn" class="btn btn-secondary">कमजोर कुंजी अभ्यास</button></div><div id="chapter-list" class="chapter-list"></div></section>
-  <section id="screen-learn-drill" class="screen"><div class="drill-header"><h2 id="learn-chapter-title"></h2><span id="learn-mode-label" class="mode-label"></span></div><div class="drill-stage"><div id="learn-drill-progress" class="drill-progress"></div><div id="learn-prompt" class="prompt-display"></div><div id="learn-feedback" class="feedback-line"></div></div><div id="learn-keyboard" class="onscreen-keyboard"></div></section>
-  <section id="screen-learn-done" class="screen"><div class="panel center-panel"><h2 id="learn-done-title"></h2><p id="learn-done-stats" class="muted"></p><button id="learn-next-btn" class="btn btn-primary">अगला पाठ</button><button id="learn-back-btn" class="btn btn-secondary">पाठ सूची</button></div></section>
-
-  <section id="screen-test-setup" class="screen"><div class="panel center-panel"><h2>टाइपिंग टेस्ट</h2><p class="muted">समय चुनें और दिए गए पाठ को जितना संभव हो उतना सही टाइप करें। सही या गलत टाइप करने पर कोई आवाज़ नहीं आएगी।</p><div class="test-duration-options"><button class="btn btn-secondary" data-duration="60">1 मिनट</button><button class="btn btn-secondary" data-duration="180">3 मिनट</button><button class="btn btn-secondary" data-duration="300">5 मिनट</button></div><button id="test-start-btn" class="btn btn-primary">शुरू करें</button></div></section>
-  <section id="screen-test-run" class="screen"><div class="test-stats-bar"><span id="test-time"></span><span id="test-wpm"></span><span id="test-accuracy"></span><button id="test-quit-btn" class="btn btn-muted">समाप्त करें</button></div><div class="progress-track"><div id="test-progress-bar" class="progress-fill"></div></div><div class="panel"><div id="test-source-text" class="test-source-text"></div></div><div class="panel"><div id="test-typed-text" class="test-typed-text"></div></div><p id="test-result" class="result-line"></p></section>
-
-  <section id="screen-game-setup" class="screen"><div class="panel center-panel"><h2>खेल श्रेणी चुनें</h2><p class="muted">सही अक्षर पर आवाज़ नहीं, गलत पर आवाज़ आएगी।</p><div id="game-categories" class="game-category-grid"></div></div></section>
-  <section id="screen-game-run" class="screen"><div class="drill-header"><h2 id="game-category-title"></h2><div><span id="game-score" class="mode-label"></span><span id="game-time" class="mode-label"></span></div></div><div class="drill-stage"><div id="game-prompt" class="prompt-display"></div></div><div id="game-keyboard" class="onscreen-keyboard"></div></section>
-  <section id="screen-game-done" class="screen"><div class="panel center-panel"><h2>खेल समाप्त!</h2><p id="game-final-score" class="muted"></p><button id="game-play-again-btn" class="btn btn-primary">फिर से खेलें</button></div></section>
-
-  <section id="screen-progress" class="screen"><div class="panel"><h2>प्रगति व त्रुटि विश्लेषण</h2><p id="progress-summary" class="muted"></p></div><div class="panel"><h3>सबसे ज़्यादा गलत होने वाली कुंजियां</h3><div id="progress-weak-keys" class="key-chip-row"></div></div><div class="panel"><h3>पिछले टेस्ट परिणाम</h3><div id="progress-history"></div></div></section>
+  <section class="mastery-plan"><div class="calendar-icon">▦<b>30</b></div><div class="plan-copy"><h2>30-Day Typing Mastery Plan</h2><p>A structured plan to take you from beginner to exam-ready.</p></div><div class="plan-steps"><span>🟠 <b>Learn Basics</b><small>Day 1–5</small></span><i>⟶</i><span>📈 <b>Build Speed</b><small>Day 6–15</small></span><i>⟶</i><span>🟢 <b>Practice Exams</b><small>Day 16–25</small></span><i>⟶</i><span>🎮 <b>Be Exam-Ready</b><small>Day 26–30</small></span></div><button class="btn btn-pink" id="start-plan">Start 30-Day Plan →</button></section>
+</section>
+<section id="screen-learn-list" class="screen"><div class="page-title"><h1>Structured Course</h1><p>Lessons organised from keyboard basics to words and paragraphs.</p></div><div class="panel-row-between"><h2>Lesson List</h2><button id="practice-weak-keys-btn" class="btn btn-secondary">Practise Weak Keys</button></div><div id="chapter-list" class="chapter-list"></div></section>
+<section id="screen-learn-drill" class="screen"><div class="drill-header"><h2 id="learn-chapter-title"></h2><span id="learn-mode-label" class="mode-label"></span></div><div class="drill-stage"><div id="learn-drill-progress" class="drill-progress"></div><div id="learn-prompt" class="prompt-display"></div><div id="learn-feedback" class="feedback-line"></div></div><div id="learn-keyboard" class="onscreen-keyboard"></div></section>
+<section id="screen-learn-done" class="screen"><div class="panel center-panel"><h2 id="learn-done-title"></h2><p id="learn-done-stats" class="muted"></p><button id="learn-next-btn" class="btn btn-primary">Next Lesson</button><button id="learn-back-btn" class="btn btn-secondary">Lesson List</button></div></section>
+<section id="screen-test-setup" class="screen"><div class="panel center-panel"><h2>Typing Test</h2><p class="muted">Choose a duration and type the passage accurately.</p><div class="test-duration-options"><button class="btn btn-secondary" data-duration="60">1 Minute</button><button class="btn btn-secondary" data-duration="180">3 Minutes</button><button class="btn btn-secondary" data-duration="300">5 Minutes</button></div><button id="test-start-btn" class="btn btn-primary">Start Test</button></div></section>
+<section id="screen-test-run" class="screen"><div class="test-stats-bar"><span id="test-time"></span><span id="test-wpm"></span><span id="test-accuracy"></span><button id="test-quit-btn" class="btn btn-muted">Finish</button></div><div class="progress-track"><div id="test-progress-bar" class="progress-fill"></div></div><div class="panel"><div id="test-source-text" class="test-source-text"></div></div><div class="panel"><div id="test-typed-text" class="test-typed-text"></div></div><p id="test-result" class="result-line"></p></section>
+<section id="screen-game-setup" class="screen"><div class="panel center-panel"><h2>Choose a Practice Game</h2><p class="muted">Short drills for vowels, consonants, matras and numerals.</p><div id="game-categories" class="game-category-grid"></div></div></section>
+<section id="screen-game-run" class="screen"><div class="drill-header"><h2 id="game-category-title"></h2><div><span id="game-score" class="mode-label"></span><span id="game-time" class="mode-label"></span></div></div><div class="drill-stage"><div id="game-prompt" class="prompt-display"></div></div><div id="game-keyboard" class="onscreen-keyboard"></div></section>
+<section id="screen-game-done" class="screen"><div class="panel center-panel"><h2>Game Complete!</h2><p id="game-final-score" class="muted"></p><button id="game-play-again-btn" class="btn btn-primary">Play Again</button></div></section>
+<section id="screen-progress" class="screen"><div class="page-title"><h1>Your Progress</h1><p>Review your practice history and the keys that need attention.</p></div><div class="panel"><h2>Progress &amp; Error Analysis</h2><p id="progress-summary" class="muted"></p></div><div class="panel"><h3>Most Frequent Mistakes</h3><div id="progress-weak-keys" class="key-chip-row"></div></div><div class="panel"><h3>Recent Test Results</h3><div id="progress-history"></div></div></section>
 </main>
-<script src="layouts.js"></script>
-<script src="content.js"></script>
-<script src="app.js"></script>
-</body>
-</html>
+<footer class="site-footer"><span>⌨ DevNagariTyping</span><span>Practice consistently. Verify exam-specific rules with official notifications.</span></footer>
+<script src="layouts.js"></script><script src="content.js"></script><script src="app.js"></script><script src="dashboard.js"></script>
+</body></html>
