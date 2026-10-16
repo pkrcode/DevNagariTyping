@@ -1,6 +1,14 @@
 "use strict";
 document.addEventListener("DOMContentLoaded", () => {
   const click = (id) => document.getElementById(id)?.click();
+  // Make the dashboard the landing screen for first-time visitors too.
+  try {
+    const saved = JSON.parse(localStorage.getItem("devnagariTyping.v1") || "{}");
+    if (!saved.layout && document.getElementById("screen-onboarding")?.classList.contains("active")) {
+      const krutiChoice = document.querySelectorAll("#layout-cards .layout-card button")[1];
+      if (krutiChoice) krutiChoice.click();
+    }
+  } catch {}
   const go = (id) => { const node=document.getElementById(id); if(node) node.click(); };
   // New dashboard navigation reuses the existing learning/test/game screens.
   ["hero-start","course-view-all","continue-lesson","nav-practice"].forEach(id=>{
