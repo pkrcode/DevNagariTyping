@@ -4,9 +4,15 @@ const html=fs.readFileSync(path.join(__dirname,"index.html"),"utf8");
 const dom=new JSDOM(html,{runScripts:"dangerously",url:"http://localhost/",pretendToBeVisual:true});
 const {window}=dom;window.scrollTo=()=>{};
 const scripts=["layouts.js","content.js","app.js"].map(f=>fs.readFileSync(path.join(__dirname,f),"utf8"));
-window.eval(scripts.join("\n;\n"));
-const doc=window.document;let failures=0;
+let failures=0;
 function check(name,fn){try{const ok=fn();console.log((ok?"PASS":"FAIL")+" "+name);if(!ok)failures++;}catch(e){failures++;console.log("FAIL "+name+": "+e.message);}}
+/* Execute each classic script as its own script tag context, matching index.html. */
+const {JSDOM:Unused}=require("jsdom");
+for(const file of ["layouts.js","content.js","app.js"]){
+ const code=fs.readFileSync(path.join(__dirname,file),"utf8");
+ const script=window.document.createElement("script");script.textContent=code;window.document.body.appendChild(script);
+}
+const doc=window.document;
 window.document.dispatchEvent(new window.Event("DOMContentLoaded",{bubbles:true,cancelable:true}));
 check("initial onboarding is visible",()=>doc.querySelector("#screen-onboarding").classList.contains("active"));
 check("three layout cards render",()=>doc.querySelectorAll(".layout-card").length===3);
