@@ -2,7 +2,7 @@
   "name": "devnagari-typing",
   "version": "0.1.0",
   "private": true,
-  "description": "Hindi typing tutor web prototype with lessons, tests, games, and progress tracking.",
+  "description": "Hindi typing tutor browser prototype",
   "scripts": {
     "test": "node smoke_test.js",
     "serve": "python3 -m http.server 8000"
