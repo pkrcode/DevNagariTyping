@@ -8,7 +8,7 @@ let failures=0, finished=false;
 function check(name,fn){try{const ok=fn();console.log((ok?"PASS":"FAIL")+" "+name);if(!ok)failures++;}catch(e){failures++;console.log("FAIL "+name+": "+e.message);}}
 window.addEventListener("load",()=>{
  const doc=window.document;
- check("initial onboarding is visible",()=>doc.querySelector("#screen-onboarding").classList.contains("active"));
+ check("dashboard is the default landing screen",()=>doc.querySelector("#screen-home").classList.contains("active"));
  check("three layout cards render",()=>doc.querySelectorAll(".layout-card").length===3);
  check("Mangal selection opens home",()=>{doc.querySelector(".layout-card .btn-primary").click();return doc.querySelector("#screen-home").classList.contains("active");});
  check("course creates more than ten lessons",()=>window.app.chapters.length>10);
