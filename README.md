@@ -21,7 +21,7 @@ Open http://localhost:8000.
 - `app.js` — lesson, typing test, game and progress logic
 - `layouts.js` — prototype keyboard mapping data
 - `content.js` — Hindi practice passages and game character groups
-- `assets/isha-hero.jpg.b64` — compressed supplied hero character image, loaded by `dashboard.js`
+- `assets/isha-hero.png` — supplied hero character image used in the home dashboard
 - `smoke_test.js` — DOM smoke tests
 - `.github/workflows/` — CI and GitHub Pages deployment workflows
 

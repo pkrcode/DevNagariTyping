@@ -2,7 +2,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const click = (id) => document.getElementById(id)?.click();
   const heroImage = document.querySelector(".hero-photo");
-  if (heroImage && typeof fetch === "function") fetch("assets/isha-hero.jpg.b64").then(response => { if (!response.ok) throw new Error("Hero image asset unavailable"); return response.text(); }).then(encoded => { heroImage.src = "data:image/jpeg;base64," + encoded.trim(); }).catch(() => { heroImage.style.display = "none"; const fallback = heroImage.nextElementSibling; if (fallback) fallback.style.display = "flex"; });
+  if (heroImage) {
+    heroImage.addEventListener("error", () => {
+      heroImage.style.display = "none";
+      const fallback = heroImage.nextElementSibling;
+      if (fallback) fallback.style.display = "flex";
+    }, { once: true });
+  }
   // Make the dashboard the landing screen for first-time visitors too.
   try {
     const saved = JSON.parse(localStorage.getItem("devnagariTyping.v1") || "{}");
