@@ -20,8 +20,8 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+      # Do not call configure-pages here: if Pages has not yet been enabled,
+      # that action fails with "Get Pages site failed / Not Found".
       - name: Upload website files
         uses: actions/upload-pages-artifact@v3
         with:
