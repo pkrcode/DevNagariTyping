@@ -1,12 +1,12 @@
 # DevNagariTyping — हिंदी टाइपिंग ट्यूटर
 
-A browser-first Hindi typing tutor prototype with a keyboard-layout picker, structured touch-typing lessons, timed typing tests, quick-fire practice games, and local progress/error tracking.
+A browser-first Hindi typing tutor prototype with a layout picker, finger-guided lessons, timed typing practice, character games, and local progress/error tracking.
 
-> **Prototype status:** This is an early web prototype, not yet a production exam-preparation product. Verify Mangal/Inscript and Kruti Dev mappings against the exact official keyboard chart used by your exam before relying on them. Remington Gail is not implemented yet. Do not assume a layout is officially verified based only on this prototype.
+> **Prototype status:** This repository is an early prototype. Keyboard mappings are practice data and must be verified against the exact official chart required by your exam before exam use. Kruti Dev compatibility and the distinction between layout key positions and legacy font encoding require further validation. Remington Gail is not implemented.
 
 ## Run locally
 
-Requirements: Node.js 18+ (for tests) and a modern browser.
+Requirements: Node.js 18+ and a modern browser.
 
 ```bash
 npm install
@@ -14,41 +14,43 @@ npm test
 npm run serve
 ```
 
-Then open <http://localhost:8000>. You can also open `index.html` directly, but serving over HTTP is more representative of deployment.
+Open <http://localhost:8000>. You can also open `index.html` directly, but serving over HTTP is recommended.
 
-## Current features
+## Features in this prototype
 
-- **Layout selection:** Mangal (Inscript), Kruti Dev and a placeholder for Remington Gail where source data is not yet available.
-- **Learn:** lessons organized by physical finger and keyboard row, progressing from keys to drills, common words, and original paragraphs.
-- **Test:** timed typing practice, WPM and accuracy feedback, with word-locked backspace behavior.
-- **Games:** quick-fire practice for vowels, consonants, matras, digits, and mixed characters.
-- **Progress:** local lesson completion, test history, and frequently missed keys; a focused drill can be generated from errors.
-- **Unicode-aware display:** grapheme-cluster handling helps keep Devanagari matras and conjuncts together while highlighting typed text.
-- **Offline-friendly:** no backend or account is required in this prototype; progress is stored in the current browser's local storage.
+- Layout selection: Mangal/Inscript and a prototype Kruti Dev mapping; Remington Gail is labelled as not yet available.
+- Lessons ordered by keyboard row and finger, progressing from keys to mixed-key drills, common words, and original Hindi paragraphs.
+- Timed typing tests with live elapsed time, WPM, accuracy, and result history.
+- Quick-fire character games for vowels, consonants, matras, digits, and mixed practice.
+- Progress screen with completed lesson count and weak-key error counts.
+- Unicode-aware grapheme grouping for displaying Devanagari text without naively splitting combining marks.
+- Browser-local storage; no account or backend is required.
 
-## Project files
+## Files
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | App screens and navigation |
-| `styles.css` | Responsive visual styles |
-| `layouts.js` | Keyboard mapping and finger/row metadata |
-| `content.js` | Original practice content and game character groups |
-| `app.js` | Lessons, typing input, tests, games, and progress logic |
-| `smoke_test.js` | jsdom smoke tests for core user flows |
+| `index.html` | App screens |
+| `styles.css` | Responsive styling |
+| `layouts.js` | Physical key-to-character mappings and finger metadata |
+| `content.js` | Original Hindi paragraphs and game character sets |
+| `app.js` | Lessons, typing input, test/game flows, and progress |
+| `smoke_test.js` | DOM smoke tests |
 
-## Scope and roadmap
+## Known gaps before exam or commercial use
 
-1. Establish the working desktop/browser prototype and regression tests.
-2. Validate keyboard mappings against official sources and add clear layout provenance/licensing notes.
-3. Improve accessibility, responsive behavior, onboarding, and lesson coverage.
-4. Extract a reusable typing/course engine before building Android/iOS clients.
-5. Add optional cloud sync and monetization only after the core practice experience is validated.
+1. Validate every supported keyboard mapping against the exact official chart for each target exam. Mappings here must not be treated as officially certified.
+2. Kruti Dev is historically associated with a legacy font/encoding workflow. This prototype represents characters internally as Unicode for practice; it does not promise file-level compatibility with legacy Kruti Dev documents or exam software.
+3. Remington Gail is not implemented yet.
+4. The test/game rules and measurement metrics are prototype-level and need user testing against target exam requirements.
+5. Check provenance and licensing of all layout/reference material, fonts, and future sound/icon assets before redistribution or commercial release.
 
-## Content, trademarks, and attribution
+## Roadmap
 
-This repository should contain original app code, visual design, lessons, and sounds. Keyboard layouts are functional data, but their correctness and any third-party source/licensing implications must be checked before redistribution or commercial release. The prototype does not claim affiliation with any government exam body, keyboard-layout publisher, or commercial typing-tutor product.
+1. Validate mapping data and core typing correctness.
+2. Improve the test engine (exam-specific duration, scoring, word-lock rules and configurable passage sets).
+3. Improve accessibility, mobile browser behavior, and lesson progression.
+4. Extract a shared typing/course engine before expanding to Android and iOS.
+5. Consider cloud sync and monetization only after the learning experience is validated.
 
-## Test suite
-
-`npm test` runs a DOM smoke test that covers initial onboarding, lesson navigation and typing, test setup, game flow, progress rendering, Devanagari grapheme grouping, and word-locked backspace. Passing smoke tests does not prove official layout correctness or full cross-browser accessibility.
+The project is not affiliated with a government exam body, keyboard-layout publisher, or commercial typing tutor.
