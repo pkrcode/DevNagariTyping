@@ -86,7 +86,7 @@ function init(){
  $("#game-play-again-btn").onclick=()=>{renderGameSetup();showScreen("game-setup");};
  document.addEventListener("keydown",onKey);
  buildLayoutPicker();
- if(state.layout&&LAYOUTS[state.layout]&&state.layout!=="remington")selectLayout(state.layout);else showScreen("onboarding");
+ if(state.layout&&LAYOUTS[state.layout]&&state.layout!=="remington")selectLayout(state.layout);else selectLayout("kruti");
 }
 function buildLayoutPicker(){
  const host=$("#layout-cards");host.innerHTML="";
